@@ -1,0 +1,12 @@
+:do {
+:local x $user;
+:local f [/ip hotspot active get [find user=$x and uptime<30] mac-address];
+:if (($f="00:90:4C:C5:12:38") or ($f="D8:31:CF:78:B2:BD") or ($f="40:16:7E:E1:A1:F2") or ($f="00:03:7F:04:02:12") or ($f="D0:5B:A8:DA:3D:A8") or ($f="90:06:28:E2:44:51") or ($f="D8:90:E8:10:98:09") or ($f="1C:99:4C:C3:A4:0E") or ($f="A0:91:69:F5:C2:70") or ($f="F0:08:F1:69:FF:46") or ($f="FC:42:03:DD:A5:AC") or ($f="60:A4:D0:1F:7A:10") or ($f="78:44:76:B1:93:E0") or ($f="00:03:7f:04:02:12") or ($f="78:E8:B6:2A:B9:11") or ($f="38:AA:3C:10:C6:79") or ($f="80:5A:04:A4:F9:3C") or ($f="D0:5B:a8:DA:3D:A8") or ($f="00:90:4C:C5:12:77") or ($f="A0:91:69:C2:CF:4B") or ($f="00:05:49:38:3A:0B") or ($f="FC:C7:34:20:F9:A4")) do={
+:if ( [ :len [ /ip dhcp-server lease find where active-mac-address="$f" and dynamic=yes] ] != 0 ) do={
+:local vb ([ /system clock get time ].":".[ /system clock get time ]);
+/ip dhcp-server lease make-static [find active-mac-address="$f" and dynamic=yes];
+/ip dhcp-server lease set lease-time=3h server=all mac-address="$vb" comment="$x" client-id="" block-access=yes [find where active-mac-address="$f"];
+:foreach coom in=[/ip hotspot cookie find mac-address="$f"] do={/ip hotspot cookie remove $coom};
+}
+}
+}
