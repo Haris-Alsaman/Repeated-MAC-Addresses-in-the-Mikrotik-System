@@ -1,7 +1,5 @@
-# duplicate-MAC-Address-Mikrotik
 
 
-## This is the code that can be used to solve the problem of duplicated MAC addresses in the Mikrotik system.
 
 ## This code is used to solve the problem of duplicated MAC addresses in Mikrotik system. The code includes several steps, which are:
 
@@ -40,9 +38,12 @@ add comment=FB.com/alharth6 name=reboot_MAC on-event="{\r\
 
 
 
-##FEATURES
+## FEATURES
 
 This file is used to perform the following steps:
 Check the MAC address of any device trying to connect to the network.
 If a duplicate MAC address is detected, remove the current DHCP settings for this address and change them to static settings.
 Delete all cookies associated with the device with the duplicate MAC address.
+
+
+## This is the code that can be used to solve the problem of duplicated MAC addresses in the Mikrotik system.
