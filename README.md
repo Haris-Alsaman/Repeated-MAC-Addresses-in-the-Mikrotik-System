@@ -46,4 +46,4 @@ If a duplicate MAC address is detected, remove the current DHCP settings for thi
 Delete all cookies associated with the device with the duplicate MAC address.
 
 
-## This is the code that can be used to solve the problem of duplicated MAC addresses in the Mikrotik system.
+### This is the code that can be used to solve the problem of duplicated MAC addresses in the Mikrotik system.
