@@ -1,7 +1,7 @@
 
 
 
-## This code is used to solve the problem of duplicated MAC addresses in Mikrotik system. The code includes several steps, which are:
+#### This code is used to solve the problem of duplicated MAC addresses in Mikrotik system. The code includes several steps, which are:
 
 1- Put in the hostpot open user profile using the following command:
 
