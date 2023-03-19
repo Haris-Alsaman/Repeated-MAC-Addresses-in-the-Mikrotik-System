@@ -4,21 +4,30 @@
 #### This code is used to solve the problem of duplicated MAC addresses in Mikrotik system. The code includes several steps, which are:
 
 1- Put in the hostpot open user profile using the following command:
+on-login
 
-
+```
 /import RepeatedMacAddresses;
+
+```
+
 
 
 2- In the same user profile, add the following command to the on-logout event:
+on-logout
 
+```
 :local z $user
 /ip dhcp-server lease remove [find comment=$z];
+
+```
+
 
 
 3- In a new terminal, use the following command to create a new scheduler:
 
 
-
+```
 /system scheduler
 add comment=FB.com/alharth6 name=reboot_MAC on-event="{\r\
     \n:foreach h1 in=[/ip dhcp-server lease find] do={\r\
@@ -29,10 +38,11 @@ add comment=FB.com/alharth6 name=reboot_MAC on-event="{\r\
     \n}" policy=ftp,reboot,read,write,policy,test,password,sniff,sensitive \
     start-time=startup
 
+```
 
 
 
-4- Finally, download the  file(RepeatedMacAddresses) and upload it to the file :
+4- Finally, download the  file(RepeatedMacAddresses) and upload it to the file.
 
 
 
